@@ -135,6 +135,10 @@ spec:
         - name: SW_ES_PASSWORD
           value: "{{ .Values.elasticsearch.config.password }}"
         {{- end }}
+        {{- if .Values.elasticsearch.config.index }}
+        - name: SW_NAMESPACE
+          value: "{{ .Values.elasticsearch.config.index }}"
+        {{- end }}
 {{- end }}
         {{- range $key, $value :=  .Values.oap.env }}
         - name: {{ $key }}
